@@ -1,5 +1,1 @@
 #include "custom_corne.dtsi"
-
-&default_transform {
-    col-offset = <6>; // Tells the transform to shift keys for the right half
-};
