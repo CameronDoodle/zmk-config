@@ -7,8 +7,10 @@ config ZMK_SPLIT
     default y
 
 if SHIELD_CUSTOM_CORNE_LEFT
+
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
-endif
 
-endif
+endif # SHIELD_CUSTOM_CORNE_LEFT
+
+endif # SHIELD_CUSTOM_CORNE_LEFT || SHIELD_CUSTOM_CORNE_RIGHT
