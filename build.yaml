@@ -21,7 +21,5 @@
 include:
   - board: nice_nano_v2
     shield: custom_corne_left
-    snippet: zmk-config-board-self
   - board: nice_nano_v2
     shield: custom_corne_right
-    snippet: zmk-config-board-self
