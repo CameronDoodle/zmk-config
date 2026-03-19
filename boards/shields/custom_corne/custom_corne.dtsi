@@ -1,0 +1,38 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+    };
+
+    default_transform: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        columns = <6>;
+        rows = <5>; // The full matrix: 4 finger rows + 1 thumb row
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row"; // Assumed from your Ergogen diode 'to: row_net'
+
+        // Columns use Pins: 21, 20, 19, 18, 15, 14
+        col-gpios
+            = <&pro_micro 21 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+            ;
+
+        // Rows use Pins: 7, 8, 9, 10, 16
+        row-gpios
+            = <&pro_micro  7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+};

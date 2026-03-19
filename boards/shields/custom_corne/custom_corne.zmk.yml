@@ -1,0 +1,8 @@
+id: custom_corne
+name: Custom Corne
+type: shield
+url: https://your-optional-project-url.com
+requires: [pro_micro]
+siblings:
+  - custom_corne_left
+  - custom_corne_right
